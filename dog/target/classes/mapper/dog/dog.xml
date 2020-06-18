@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="dog">
+	
+	<select id="dogList" resultType="dog.DogVO" parameterType="dog.DogVO">
+		SELECT * FROM dogvo
+		
+	</select>
+	<insert id="dogInsert" parameterType="dog.DogVO">
+		INSERT INTO dog.dogvo
+		( kind, price, image, country, height, weight, content, readcount)
+		values
+		( #{kind}, #{price}, #{image}, #{country}, #{height}, #{weight}, #{content}, #{readcount})
+	</insert>
+		<select id="dogView" parameterType="Integer" resultType="dog.DogVO">
+		SELECT * FROM dog.dogvo WHERE id=#{id}
+	</select>
+</mapper>

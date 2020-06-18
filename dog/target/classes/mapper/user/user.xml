@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="user">
+	
+	<select id="idCheck" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM user WHERE id=#{id}
+	</select>
+	
+	<insert id="insert" parameterType="user.UserVO">
+		insert into user (id, password, name, age, gender, email, regdate, modifydate)
+		values
+		(#{id}, md5(#{password}), #{name}, #{age}, #{gender}, #{email}, now(), null)
+	</insert>
+	
+</mapper>

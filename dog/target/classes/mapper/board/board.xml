@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="board">
+	
+	<select id="list" resultType="board.BoardVO" parameterType="board.BoardVO">
+		SELECT * FROM board ORDER BY board_re_ref DESC, board_re_seq ASC
+		LIMIT , #{page},#{limit}
+		
+	</select>
+	
+</mapper>
